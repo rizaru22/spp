@@ -28,7 +28,10 @@
                         
                         ?>
 								<div class="panel-heading text-center">
-                                    <h3 class="" style="display:inline-block">Laporan Pengeluaran Tahunan</h3>
+                                    <img src="assets/img/logo.png" style="width:100px; float:left">
+                                    <h3 class="" style="display:inline-block">Laporan Tahunan Pengeluaran</h3>
+                                    <h4 class="text-center">DAYAH TERPADU MADINATUDDINIYAH JABAL NUR PALOH LADA</h4>
+                                    <h4 class="text-center">Kec. Dewantara Kab. Aceh Utara</h4>
                                 </div>
                                 <div class="panel-body">
                                     <table class="">
@@ -57,7 +60,9 @@
                                             ?>
                                             <tbody>
                                                                                           
-                                                <?php for($i=1;$i<=12;$i++) { 
+                                                <?php 
+                                                $total=0;
+                                                for($i=1;$i<=12;$i++) { 
                                                 $laporan=mysqli_query($koneksi,"SELECT IFNULL(SUM(nominal),0)
                                                 FROM tbl_pengeluaran
                                                 INNER JOIN tbl_detail_pengeluaran ON tbl_detail_pengeluaran.id_pengeluaran=tbl_pengeluaran.id_pengeluaran
@@ -68,9 +73,14 @@
                                                 <td>'.$nama_bulan[$i].'</td>
                                                 <td>'.rupiah ($data[0]).'</td>
                                                 </tr>';
+                                                $total+=$data[0];
                                                 }
+                                                
                                                 ?>
-                                               
+                                               <tr>
+                                                <td colspan="2"><b>Total</b></td>
+                                                <td><?= rupiah($total);?>
+                                               </tr>
                                             
                                                 
                                             </tbody>

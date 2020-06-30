@@ -30,7 +30,10 @@
                         
                         ?>
 								<div class="panel-heading text-center">
+                                    <img src="assets/img/logo.png" style="width:100px; float:left">
                                     <h3 class="" style="display:inline-block">Laporan Pengeluaran Harian</h3>
+                                    <h4 class="text-center">DAYAH TERPADU MADINATUDDINIYAH JABAL NUR PALOH LADA</h4>
+                                    <h4 class="text-center">Kec. Dewantara Kab. Aceh Utara</h4>
                                 </div>
                                 <div class="panel-body">
                                     <table class="">
