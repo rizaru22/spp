@@ -16,7 +16,7 @@
 											<form method="POST" action="library/tahun_ajaran.php">
 												<label for="">Nominal Pembayaran</label>
 												<input type="number" name="nominal" id="" class="form-control" placeholder="Nominal Pembayaran"><br>
-												<label for="">Tahun Pembayaran</label>
+												<label for="">Tahun Pembayaran <b>Tidak boleh ada Tahun Pembayaran yang sama<b></label>
 												<input type="text" max="4" class="tahun form-control" autocomplete="off" placeholder="" name="tahun_pelajaran" required><br>
 												<label for="">Status</label>
 												<select name="status" id="status" required class="form-control">
