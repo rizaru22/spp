@@ -58,11 +58,11 @@
                             <td class="col-md-2">:</td>
                             <td><?=rupiah($total)?></td>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <td>Sisa</td>
                             <td class="col-md-2">:</td>
-                            <td><?=rupiah($sisa=$data['iuran']-$total)?></td>
-                        </tr>
+                            <td><?//=rupiah($sisa=$data['iuran']-$total)?></td>
+                        </tr> -->
                     <?php endwhile; ?>
                     </table>
                     <br><br><br>

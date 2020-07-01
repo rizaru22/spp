@@ -81,7 +81,10 @@
                                             LEFT OUTER JOIN view_laporan_kelas as V ON V.nis=S.nis AND tahun='$tahun' WHERE S.id_kelas='$kelas' GROUP BY S.nis ORDER BY S.nama"); 
                                             ?>
                                             <tbody>
-                                                <?php while($data=mysqli_fetch_array($laporan)): ?>
+                                                <?php 
+                                                $total=0;
+                                                $grandtotal=0;
+                                                while($data=mysqli_fetch_array($laporan)): ?>
                                             <tr>
                                                 <td><?= $data['nama'] ?></td>
                                                 <td><?= rupiah($data['Januari'])?></td>
@@ -97,7 +100,13 @@
                                                 <td><?= rupiah($data['November'])?></td>
                                                 <td><?= rupiah($data['Desember'])?></td>
                                             </tr>
-                                                <?php endwhile; ?>
+                                                <?php 
+                                                $total=$data['Januari']+$data['Februari']+$data['Maret']+$data['April']+$data['Mei']+$data['Juni']+$data['Juli']+$data['Agustus']+$data['September']+$data['Oktober']+$data['November']+$data['Desember'];
+                                                $grandtotal+=$total;
+                                            endwhile; ?>
+                                            <tr><td><b>Total</b></td>
+                                            <td colspan='12'><b><?= rupiah($grandtotal); ?></b></td>
+                                            </tr>
                                             </tbody>
                                         </table>
                                         <a href="#" onclick="window.print()"><i class="fa fa-print btn btn-success print pull-right" title="Cetak Laporan"> Cetak Laporan</i></a><br>
