@@ -21,6 +21,7 @@
 												<th>Jenis Kelamin </th>
 												<th>Kelas </th>
 												<th>Wali Kelas </th>
+												<th>Status </th>
 												<th class="">Aksi</th>
 											</tr>
 										</thead>
@@ -29,7 +30,7 @@
 											
 											include 'library/config.php';
                                             $jk=$_GET['id'];
-											$sql=mysqli_query($koneksi,"select ts.nis,ts.nama,ts.jk,ts.id_kelas,tk.id,tk.nama as nama_kelas,tk.wali_kelas from tbl_siswa as ts inner join tbl_kelas as tk where ts.id_kelas=tk.id AND ts.jk='$jk' order by nama asc");
+											$sql=mysqli_query($koneksi,"select ts.nis,ts.status,ts.nama,ts.jk,ts.id_kelas,tk.id,tk.nama as nama_kelas,tk.wali_kelas from tbl_siswa as ts inner join tbl_kelas as tk where ts.id_kelas=tk.id AND ts.jk='$jk' order by nama asc");
 											$no=1;
 											while ($data=mysqli_fetch_array($sql)):
 											?>
@@ -40,8 +41,9 @@
 												<td><?php if($data['jk']=='L'){echo"Laki-Laki";}else{echo"Perempuan";}?></td>
 												<td><?=$data['nama_kelas']?></td>
 												<td><?=$data['wali_kelas']?></td>
+												<td><button class='btn <?php if($data['status']=='aktif'):?> btn-success <?php elseif($data['status']=='pindah'):?> btn-danger <?php elseif($data['status']=='tamat'):?> btn-primary <?php endif;?> btn-xs'><?=$data['status']?></button></td>
 												<td class='col-md-2 '>
-													<a href='library/hapus_siswa.php?id=<?=$data['nis']?>&jk=<?=$jk?>' class='btn btn-danger btn-xs btn-del' title='Hapus'><i class='fa fa-trash'></i></a>
+													<!--<a href='library/hapus_siswa.php?id=<?=$data['nis']?>&jk=<?=$jk?>' class='btn btn-danger btn-xs btn-del' title='Hapus'><i class='fa fa-trash'></i></a>-->
 													<a href='index.php?page=edit_siswa&id=<?=$data['nis']?>' class='btn btn-warning btn-xs' title='Edit'><i class='fa fa-edit'></i></a>
 													<a href='index.php?page=infosiswa&id=<?=$data['nis']?>' class='btn btn-primary btn-xs' title='Detail'><i class='fa fa-info'></i></a>
 												</td>
