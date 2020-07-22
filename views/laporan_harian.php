@@ -30,13 +30,17 @@
                         </thead>
                         <tbody>
                             <?php 
+                                $no=1;
                                 while($data=mysqli_fetch_array($query)){
                             ?>
-                            <tr>
+                            <tr><td><?=$no; ?>
                                 <td><?=$data['nama']?></td>
                                 <td><span class="pull-right"><?=rupiah($data['nominal'])?></span></td>
+                                
                             </tr>
-                                <?php } ?>
+                                <?php
+                                $no++;
+                                } ?>
                                 <thead>
                                     <?php 
                                     $t_query=mysqli_query($koneksi,"SELECT sum(tbl_detail_bayar.nominal) as Total
