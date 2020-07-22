@@ -15,6 +15,7 @@
                                         include 'library/config.php';
 										$id=$_GET['id'];
 										$jk=['L','P'];
+										$status=['aktif','pindah','tamat'];
                                         $data=mysqli_query($koneksi,"select * from tbl_siswa where nis='$id'");
                                         while($d=mysqli_fetch_array($data)){
 
@@ -66,6 +67,17 @@
 											<input type="text" class="form-control" placeholder="Nama Ayah" name="nama_ayah" required value="<?=$d['nama_ayah'] ?>"><br>
 											<label for="">Nama Ibu</label>
                                             <input type="text" class="form-control" placeholder="Nama Ibu" name="nama_ibu" required value="<?=$d['nama_ibu'] ?>"><br>
+											<label for="">Status</label>
+											<select name="status" id="" class="form-control">
+											<option value="" selected disabled>--- Pilih Status ---</option>
+											<?php foreach($status as $status):?>
+											<?php if($status==$d['status']):?>
+											<option value="<?=$status?>" selected><?=$status?></option>
+											<?php else:?>
+											<option value="<?=$status?>"><?=$status?></option>
+											<?php endif;?>
+											<?php endforeach;?>
+											</select><br>
                                             <?php } ?>
                                             <input type="submit" value="simpan" class="btn btn-primary">
                                         </div>
