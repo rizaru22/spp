@@ -14,6 +14,7 @@
                                         <?php
                                             include 'library/config.php';
                                             $id=$_GET['id'];
+                                            $status=['Aktif','Tidak aktif'];
                                             $query=mysqli_query($koneksi,"SELECT * FROM tbl_kelas where id=$id");
                                             $data=mysqli_fetch_array($query);
                                         ?>
@@ -23,6 +24,16 @@
 											<input type="text" class="form-control" placeholder="Nama Kelas" name="nama" required value="<?=$data['nama']?>"><br>
 											<label for="">Wali Kelas</label>
                                             <input type="text" class="form-control" placeholder="Wali Kelas" name="wali_kelas" required value="<?=$data['wali_kelas']?>"><br>
+											<label for="">Status</label>
+											<select name="status" id="" class="form-control">
+											<?php foreach($status as $status):?>
+											<?php if($status==$data['status']):?>
+												<option value="<?=$status?>" selected><?=$status?></option>
+											<?php else:?>
+												<option value="<?=$status?>"><?=$status?></option>
+											<?php endif?>
+											<?php endforeach;?>
+											</select><br>
                                             <input type="submit" value="simpan" class="btn btn-success">
 										</form>
                                         </div>

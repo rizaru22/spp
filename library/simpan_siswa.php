@@ -14,6 +14,6 @@ $nama_ayah=addslashes($_POST['nama_ayah']);
 $nama_ibu=addslashes($_POST['nama_ibu']);
 
 //masukkan data ke dalam tabel
-mysqli_query($koneksi,"insert into tbl_siswa values('$nisn','$nama','$jk','$tempat_lahir','$tanggal_lahir','$alamat','$kelas','$nama_ayah','$nama_ibu')");
+mysqli_query($koneksi,"insert into tbl_siswa values('$nisn','$nama','$jk','$tempat_lahir','$tanggal_lahir','$alamat','$kelas','$nama_ayah','$nama_ibu','aktif')");
 
 header("location:../index.php?page=datasiswa&id=$kelas");

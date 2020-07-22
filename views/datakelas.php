@@ -20,6 +20,7 @@
 												<th>#</th>
 												<th>Kelas</th>
 												<th>Wali Kelas</th>
+												<th>Status</th>
 												<th>Aksi</th>
 											</tr>
 										</thead>
@@ -34,6 +35,7 @@
 												<td class='col-md-1'>$no</td>
 												<td>$data[nama]</td>
 												<td>$data[wali_kelas]</td>
+												<td>$data[status]</td>
 												<td class='col-md-2'>
 													<a href='library/hapus_kelas.php?id=$data[id]' class='btn btn-danger btn-del' title='Hapus'><i class='fa fa-trash'></i></a>
 													<a href='index.php?page=edit_kelas&id=$data[id]' class='btn btn-warning' title='Edit'><i class='fa fa-edit'></i></a>
