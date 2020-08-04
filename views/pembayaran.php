@@ -44,7 +44,7 @@
                                             <select name="kelas" id="kelas" class="form-control" required>
                                                 <option value="" disabled selected>---Pilih Kelas---</option>
 												<?php
-												$sql=mysqli_query($koneksi,"select * from tbl_kelas");
+												$sql=mysqli_query($koneksi,"select * from tbl_kelas where  status='aktif'");
 												while ($data=mysqli_fetch_array($sql)){
 												echo"
 												<option value=$data[id]>$data[nama]</option>";

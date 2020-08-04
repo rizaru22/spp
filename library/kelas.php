@@ -4,7 +4,7 @@ include 'config.php';
 
 $kelas=$_POST['kelas'];
 
-$sql_kelas=mysqli_query($koneksi,"select * from tbl_siswa where id_kelas='$kelas' order by nama");
+$sql_kelas=mysqli_query($koneksi,"select * from tbl_siswa where id_kelas='$kelas' and status='aktif' order by nama");
 
 
 echo'<option value="" required disabled selected>---Nama Siswa---</option>';
