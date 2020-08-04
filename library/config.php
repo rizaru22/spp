@@ -3,7 +3,7 @@
 $host="localhost";
 $user="root";
 $pass="";
-$database="app_spp";
+$database="spp";
 
 //membuat objek koneksi database
 $koneksi=new mysqli($host,$user,$pass,$database);
